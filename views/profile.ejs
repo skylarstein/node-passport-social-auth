@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+  <head>
+    <title>node-passport-social-auth</title>
+    <%include ./head.ejs%>
+  </head>
+  <body>
+    <div class="container">
+      <h4>Welcome to the node-passport-social-auth template application</h4>
+      <div>
+        <img src='<%=user.avatarUrl%>' width='75px'>
+      </div>
+      <br>
+      <div>
+        <pre><%=JSON.stringify(user, null, 2)%></pre>
+      </div>
+      <hr>
+      <a href="/auth/logout" class="btn btn-default">Logout</a>
+    </div>
+  </body>
+</html>
