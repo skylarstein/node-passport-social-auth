@@ -36,13 +36,16 @@ angular.module('app', ['ngRoute'])
       $http.get('/profile')
       .then(function(response) {
         $rootScope.currentUser = response.data;
+        $rootScope.formattedCurrentUser = JSON.stringify(response.data, null, 2);
       }, function(err) {
         $rootScope.currentUser = null;
+        $rootScope.formattedCurrentUser = null;
       });
     },
     logout: function() {
       $http.get('/auth/logout').finally(function() {
         $rootScope.currentUser = null;
+        $rootScope.formattedCurrentUser = null;
       });
     }
   }
