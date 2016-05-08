@@ -1,0 +1,14 @@
+<div class="logged-in" ng-if="currentUser">
+  <img ng-src="{{currentUser.avatarUrl}}" width="75px">
+  <h1>Welcome, {{currentUser.displayName}}.</h1>
+  <button ng-click="logout()">Logout</button>
+</div>
+
+<div class="not-logged-in" ng-if="!currentUser">
+  <h1>Login</h1>
+  <button ng-click="login('facebook')">Facebook</button>
+  <button ng-click="login('github')">Github</button>
+  <button ng-click="login('google')">Google</button>
+  <button ng-click="login('linkedin')">LinkedIn</button>
+  <button ng-click="login('twitter')">Twitter</button>
+</div>
