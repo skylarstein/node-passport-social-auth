@@ -19,4 +19,13 @@ router.get('/', (req, res, next) => {
   }
 });
 
+router.get('/profile', (req, res, next) => {
+  if(req.isAuthenticated()) {
+    res.status(200).send(_.omit(req.user.toObject(), ['_id', '__v']));
+  }
+  else {
+    res.status(401).send('UNAUTHORIZED');
+  }
+});
+
 module.exports = router;

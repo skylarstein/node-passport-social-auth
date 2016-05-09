@@ -1,0 +1,37 @@
+<div class="logged-in" ng-if="currentUser">
+  <div class="col-md-offset-4 col-md-4">
+    <img ng-src="{{currentUser.avatarUrl}}" width="75px">
+    <h1>Welcome, {{currentUser.displayName}}.</h1>
+    <button ng-click="logout()">Logout</button>
+  </div>
+  <div class="col-md-offset-3 col-md-6">
+    <pre>{{ formattedCurrentUser }}</pre>
+  </div>
+</div>
+
+<div class="not-logged-in" ng-if="!currentUser">
+  <div class="text-center">
+    <div class="col-md-offset-4 col-md-4">
+      <a class="btn btn-block btn-social btn-facebook" ng-click="login('facebook')">
+        <span class="fa fa-facebook"></span>
+        <span>Sign in with Facebook</span>
+      </a>
+      <a class="btn btn-block btn-social btn-github" ng-click="login('github')">
+        <span class="fa fa-github"></span>
+        <span>Sign in with Github</span>
+      </a>
+      <a class="btn btn-block btn-social btn-google" ng-click="login('google')">
+        <span class="fa fa-google"></span>
+        <span>Sign in with Google</span>
+      </a>
+      <a class="btn btn-block btn-social btn-linkedin" ng-click="login('linkedin')">
+        <span class="fa fa-linkedin"></span>
+        <span>Sign in with LinkedIn</span>
+      </a>
+      <a class="btn btn-block btn-social btn-twitter" ng-click="login('twitter')">
+        <span class="fa fa-twitter"></span>
+        <span>Sign in with Twitter</span>
+      </a>
+    </div>
+  </div>
+</div>
