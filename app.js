@@ -24,7 +24,6 @@ mongoose.connect(process.env.MONGODB_CONNECT_URL);
 const app = express();
 
 app.use(logger('dev'));
-app.use(express.static(__dirname + '/public'));
 app.set('views', path.join(__dirname, 'views'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended : true }));
@@ -63,6 +62,8 @@ app.use(function(req, res, next) {
 
 app.use('/', require('./routes/routes.js'));
 app.use('/', require('./routes/routes-auth.js'));
+
+app.use(express.static(__dirname + '/public'));
 
 // Route not found handler (404). This is the last route we'll add to our middleware stack.
 // If we make it this far we know no other route handled the request.

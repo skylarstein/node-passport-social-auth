@@ -43,7 +43,7 @@ angular.module('app', ['ngRoute'])
       });
     },
     logout: function() {
-      $http.get('/auth/logout').finally(function() {
+      $http.post('/auth/logout').finally(function() {
         $rootScope.currentUser = null;
         $rootScope.formattedCurrentUser = null;
       });

@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+<head>
+  <%include ./head.ejs%>
+  <script>
+    $(document).ready(function() {
+      $('#logoutButton').on('click', function() {          
+        $.post('/auth/logout')
+          .done(function() {
+            //alert('Goodbye');
+            location.reload(true);
+          })
+          .fail(function(xhr, textStatus, errorThrown) {
+            alert('Logout failure!');
+          });
+      })
+    });
+  </script>
+</head>
+<body>
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#/">
+          <span>Node Passport Social Auth Skeleton App (EJS Flavor)</span>
+        </a>
+      </div>
+    </div>
+  </nav>
+  <% if(!locals.user) { %>
+    <div class="text-center">
+      <div class="col-md-offset-4 col-md-4">
+        <a class="btn btn-block btn-social btn-facebook" href="/auth/facebook">
+          <span class="fa fa-facebook"></span>
+          <span>Sign in with Facebook</span>
+        </a>
+        <a class="btn btn-block btn-social btn-github" href="/auth/github">
+          <span class="fa fa-github"></span>
+          <span>Sign in with Github</span>
+        </a>
+        <a class="btn btn-block btn-social btn-google" href="/auth/google">
+          <span class="fa fa-google"></span>
+          <span>Sign in with Google</span>
+        </a>
+        <a class="btn btn-block btn-social btn-linkedin" href="/auth/linkedin">
+          <span class="fa fa-linkedin"></span>
+          <span>Sign in with LinkedIn</span>
+        </a>
+        <a class="btn btn-block btn-social btn-twitter" href="/auth/twitter">
+          <span class="fa fa-twitter"></span>
+          <span>Sign in with Twitter</span>
+        </a>
+      </div>
+    </div>
+  <% } else { %>
+  <div class="col-md-offset-4 col-md-4">
+    <img src="<%=user.avatarUrl%>" width="75px">
+    <h3>Welcome, <%=user.displayName%></h3>
+      <div class="form-group">
+        <button type="button" class="btn btn-primary" id="logoutButton">Logout</button>
+      </div>
+    </div>
+  <div class="col-md-offset-3 col-md-6">
+    <pre><%=JSON.stringify(user, null, 2)%></pre>
+  </div>
+  <% } %>
+</body>
+</html>

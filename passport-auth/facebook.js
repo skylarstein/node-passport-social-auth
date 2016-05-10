@@ -16,7 +16,7 @@ passport.use(new FacebookStrategy({
     callbackURL   : process.env.BASE_URL + process.env.FACEBOOK_CALLBACK_PATH,
     profileFields : ['id', 'name', 'emails', 'displayName', 'picture.type(large)']
   },
-  (req, accessToken, refreshToken, profile, done) => {
+  (accessToken, refreshToken, profile, done) => {
 
     //console.log('Facebook profile:', JSON.stringify(profile, null, 2));
 

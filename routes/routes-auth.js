@@ -14,9 +14,9 @@ const passportTwitter  = require('../passport-auth/twitter.js');
 const passportGoogle   = require('../passport-auth/google.js');
 const passportFacebook = require('../passport-auth/facebook.js');
 
-router.get('/auth/logout', (req, res, next) => {
+router.post('/auth/logout', (req, res, next) => {
   req.logout();
-  res.redirect('/');
+  res.status(200).send('OK');
 });
 
 const authSuccessRedirect = '/';
