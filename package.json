@@ -8,13 +8,13 @@
   },
   "author": "Skylar Stein, Maxwell Mears",
   "engines": {
-    "node": "4.4.4"
+    "node": "4.6.0"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/skylarstein/node-passport-social-auth.git"
   },
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/skylarstein/node-passport-social-auth/issues"
   },
