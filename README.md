@@ -10,7 +10,7 @@ Hold me back, it's yet another MEAN template. This one tastes just right though 
 
 * Both EJS and Angular front-end flavors are supported. It defaults to Angular served up as static content from /public, but if I'm not collaborating with an Angular guru I can simply define the environment variable EJS_FLAVOR for an EJS front-end party.
 
-A basic login page will greet you. Upon successful login a basic profile page will be displayed with the profile data and avatar supplied by the selected service.
+A basic login page will greet you. Upon successful login a basic profile page will be displayed with the profile data and avatar supplied by the selected service, including a logout button.
 
 [<img src="/docs/screenshot.png" width="250">](https://cdn.rawgit.com/skylarstein/node-passport-social-auth/master/docs/screenshot.png)
 
