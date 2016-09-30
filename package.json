@@ -21,6 +21,7 @@
   "homepage": "https://github.com/skylarstein/node-passport-social-auth#readme",
   "dependencies": {
     "body-parser": "^1.15.1",
+    "compression": "^1.6.2",
     "connect-mongo": "^1.1.0",
     "ejs": "^2.4.1",
     "express": "~4.13.1",

@@ -6,14 +6,15 @@
 
 'use strict';
 
-const express    = require('express');
-const session    = require('express-session');
-const path       = require('path');
-const logger     = require('morgan');
-const bodyParser = require('body-parser');
-const passport   = require('passport');
-const mongoose   = require('mongoose');
-const mongoStore = require('connect-mongo')(session);
+const express     = require('express');
+const session     = require('express-session');
+const path        = require('path');
+const logger      = require('morgan');
+const bodyParser  = require('body-parser');
+const passport    = require('passport');
+const mongoose    = require('mongoose');
+const mongoStore  = require('connect-mongo')(session);
+const compression = require('compression');
 
 // Connect to our database
 //
@@ -27,8 +28,9 @@ app.use(logger('dev'));
 app.set('views', path.join(__dirname, 'views'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended : true }));
+app.use(compression());
 app.use(session({
-  secret : 'Sz/G+uZqLI0gAnPiKPfSHTaiMr5ctVrXV84Byx1eZiY=', // $ openssl rand -base64 32
+  secret : process.env.SESSION_SECRET, // $ openssl rand -base64 32
   resave : false,            // Don't save unmodified sessions
   saveUninitialized : false, // Just like it sounds like, don't save unitilized login sessions
   store : new mongoStore({   // Persist cookies across server restarts
