@@ -24,6 +24,7 @@ An example .env follows. Note that BASE_URL is required since a complete callbac
 
 ```
 MONGODB_CONNECT_URL=mongodb://user:password@server:port/db
+SESSION_SECRET=superamazingsecretkey
 
 BASE_URL=http://app.server.com:{optional port}
 
