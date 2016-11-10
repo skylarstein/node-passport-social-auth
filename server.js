@@ -68,3 +68,6 @@ const cleanShutdown = shutdownType => {
 
 process.on('SIGTERM', () => cleanShutdown('SIGTERM'));
 process.on('SIGINT', () => cleanShutdown('SIGINT'));
+
+module.exports = app; // for testing
+

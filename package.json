@@ -4,7 +4,7 @@
   "description": "A Node/Express application template with Passport social authentication",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha"
   },
   "author": "Skylar Stein, Maxwell Mears",
   "engines": {
@@ -36,5 +36,10 @@
     "passport-linkedin": "^1.0.0",
     "passport-twitter": "^1.0.3",
     "underscore": "^1.8.3"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "chai-http": "^3.0.0",
+    "mocha": "^3.1.2"
   }
 }
