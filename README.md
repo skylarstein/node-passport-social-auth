@@ -16,12 +16,15 @@ A basic login page will greet you. Upon successful login a basic profile page wi
 
 #Top Secret Stuff
 
-Passport social authentication strategies require client keys/secrets/ids for each desired service. The MongoDB connect URL also required (with credentials).
+Passport social authentication strategies require client keys/secrets/ids for each desired service as well as the base URL of your application for the auth callback.
 
-These aren't the sort of things to incldue in source control so I'm supplying these values via environment variables. For Heroku deployments these would be defined as config vars. For local instances and perhaps elsewhere, create a '.env' file at the root of the project. This file is included in .gitignore.
+These aren't the sort of things to include in source control so I'm supplying these values via environment variables. Define these configuration variables in your runtime environment or for local use define them within a .env file at the root of the project. The .env file is included in .gitignore.
 
-An example .env follows. Note that BASE_URL is required since a complete callback URL must be provided to the Passport authentication strategies.
+#### Running on localhost
 
+Some social authentication strategies allow you to configure "localhost" in the auth callback URL, others do not. To run this project on your local machine, define the URL hostname as either your local hostname or give yourself a name in your hosts file: "127.0.0.1 myapp.dev"
+
+#### Example configuration variables / .env file
 ```
 MONGODB_CONNECT_URL=mongodb://user:password@server:port/db
 SESSION_SECRET=superamazingsecretkey
