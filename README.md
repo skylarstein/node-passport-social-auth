@@ -1,5 +1,7 @@
 #node-passport-social-auth
 
+[![Node.js versions](https://img.shields.io/badge/Node.js-4.x%20through%207.x-brightgreen.svg)](https://nodejs.org) [<img src="https://david-dm.org/skylarstein/node-passport-social-auth/status.svg">](https://david-dm.org/skylarstein/node-passport-social-auth) [<img src="https://david-dm.org/skylarstein/node-passport-social-auth/dev-status.svg">](https://david-dm.org/skylarstein/node-passport-social-auth?type=dev)
+
 ##A Node/Express application template with Passport social authentication
 
 Hold me back, it's yet another MEAN template. This one tastes just right though (for now at least). Included are few nice bits that I find useful for quick starts on my random projects:
