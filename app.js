@@ -55,7 +55,7 @@ app.use(passport.session());
 app.use(function(req, res, next) {
 
   if(req.headers && req.headers['x-forwarded-proto'] && req.headers['x-forwarded-proto'] != 'https') {
-    res.redirect(301, 'https://' + req.hostname + req.originalUrl); // 301 Moved Permanently
+    res.redirect(301, `https://${req.hostname}${req.originalUrl}`); // 301 Moved Permanently
   }
   else {
     next();
@@ -65,7 +65,7 @@ app.use(function(req, res, next) {
 app.use('/', require('./routes/routes.js'));
 app.use('/', require('./routes/routes-auth.js'));
 
-app.use(express.static(__dirname + '/public'));
+app.use(express.static(`${__dirname}/public`));
 
 // Route not found handler (404). This is the last route we'll add to our middleware stack.
 // If we make it this far we know no other route handled the request.

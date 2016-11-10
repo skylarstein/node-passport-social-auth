@@ -9,7 +9,7 @@
 // Sensitive/secret configuration variables can be loaded via a local .env file
 // or via environment variable configuration in your production environment.
 //
-require('node-env-file')(__dirname + '/.env', { raise : false } );
+require('node-env-file')(`${__dirname}/.env`, { raise : false } );
 
 const app        = require('./app.js');
 const os         = require('os');
@@ -26,7 +26,7 @@ httpServer.on('listening', () => {
   console.log(`Node ${process.version}, ${os.platform()}/${os.arch()}`);
 
   const addr = httpServer.address();
-  const bind = (typeof addr === 'string') ? 'pipe ' + addr : 'port ' + addr.port;
+  const bind = (typeof addr === 'string') ? `pipe ${addr}` : `port ${addr.port}`;
 
   console.log(`HTTP server listening on ${bind} on ${os.hostname()}`);
 });
@@ -57,9 +57,6 @@ httpServer.on('error', error => {
 
 // Clean shutdown
 //
-process.on('SIGTERM', () => cleanShutdown('SIGTERM'));
-process.on('SIGINT', () => cleanShutdown('SIGINT'));
-
 const cleanShutdown = shutdownType => {
   console.log(`[${shutdownType}] Initiating graceful shutdown...`);
 
@@ -67,4 +64,7 @@ const cleanShutdown = shutdownType => {
     console.log('HTTP server closed remaining connections. Exiting now.');
     process.exit(0);
   });
-}
+};
+
+process.on('SIGTERM', () => cleanShutdown('SIGTERM'));
+process.on('SIGINT', () => cleanShutdown('SIGINT'));
